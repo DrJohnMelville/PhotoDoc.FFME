@@ -130,4 +130,9 @@
 
 	<Import Project="..\Unosquare.FFME\Unosquare.FFME.projitems" Label="Shared" />
 
+	<Target Name="CopyPackage" AfterTargets="Pack">
+		<Copy SourceFiles="$(PackageOutputPath)\$(PackageId).$(PackageVersion).nupkg"
+		      DestinationFolder="$(SolutionDir)..\TempNuget\" />
+	</Target>
+
 </Project>
