@@ -4,12 +4,12 @@
   <Choose>
     <When Condition="'$(Configuration)' == 'debug'">
       <PropertyGroup>
-        <TargetFrameworks>net8.0-windows</TargetFrameworks>
+        <TargetFrameworks>net10.0-windows</TargetFrameworks>
       </PropertyGroup>
     </When>
     <Otherwise>
       <PropertyGroup>
-        <TargetFrameworks>net8.0-windows</TargetFrameworks>
+        <TargetFrameworks>net10.0-windows</TargetFrameworks>
       </PropertyGroup>
     </Otherwise>
   </Choose>
@@ -79,17 +79,9 @@
 
   <ItemGroup>
     <PackageReference Include="FFmpeg.AutoGen" Version="8.0.0.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.333">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0' AND '$(TargetFramework)' != 'netcoreapp3.1' AND '$(TargetFramework)' != 'net8.0-windows'">
+  <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0' AND '$(TargetFramework)' != 'netcoreapp3.1' AND '$(TargetFramework)' != 'net10.0-windows'">
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
