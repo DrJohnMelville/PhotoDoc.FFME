@@ -78,7 +78,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FFmpeg.AutoGen" Version="8.0.0.1" />
+    <PackageReference Include="FFmpeg.AutoGen" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0' AND '$(TargetFramework)' != 'netcoreapp3.1' AND '$(TargetFramework)' != 'net10.0-windows'">
@@ -88,6 +88,30 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="avcodec-62.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="avdevice-62.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="avfilter-11.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="avformat-62.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="avutil-60.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="swresample-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="swscale-9.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <Import Project="..\Unosquare.FFME.MediaElement\Unosquare.FFME.MediaElement.projitems" Label="Shared" />

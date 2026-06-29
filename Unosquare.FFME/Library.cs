@@ -6,6 +6,7 @@ using FFmpeg.AutoGen;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -29,6 +30,11 @@ public static partial class Library
     private static unsafe AVCodec*[] m_AllCodecs;
     private static int m_FFmpegLogLevel = Debugger.IsAttached ? ffmpeg.AV_LOG_VERBOSE : ffmpeg.AV_LOG_WARNING;
     private static bool m_IsInitialized;
+
+    static Library()
+    {
+        FFmpegDirectory  = Path.GetDirectoryName(typeof(Library).Assembly.Location);
+    }
 
     /// <summary>
     /// Gets or sets the FFmpeg path from which to load the FFmpeg binaries.
