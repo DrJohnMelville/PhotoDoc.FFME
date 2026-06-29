@@ -1,121 +1,133 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop" ToolsVersion="Current">
 
-  <Choose>
-    <When Condition="'$(Configuration)' == 'debug'">
-      <PropertyGroup>
-        <TargetFrameworks>net10.0-windows</TargetFrameworks>
-      </PropertyGroup>
-    </When>
-    <Otherwise>
-      <PropertyGroup>
-        <TargetFrameworks>net10.0-windows</TargetFrameworks>
-      </PropertyGroup>
-    </Otherwise>
-  </Choose>
+	<PropertyGroup>
+		<TargetFrameworks>net10.0-windows</TargetFrameworks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <UseWPF>true</UseWPF>
-    <UseWindowsForms>true</UseWindowsForms>
-    <RootNamespace>Unosquare.FFME</RootNamespace>
-    <LangVersion>preview</LangVersion>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <AssemblyName>ffme.win</AssemblyName>
-    <Product>FFME: The Adavanced WPF MediaElement Alternative</Product>
-    <Company>Unosquare SA de CV</Company>
-    <CodeAnalysisRuleSet>..\Analyzers.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <NeutralLanguage>en</NeutralLanguage>
+	<PropertyGroup>
+		<UseWPF>true</UseWPF>
+		<UseWindowsForms>true</UseWindowsForms>
+		<RootNamespace>Unosquare.FFME</RootNamespace>
+		<LangVersion>preview</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<AssemblyName>ffme.win</AssemblyName>
+		<Product>FFME: The Adavanced WPF MediaElement Alternative</Product>
+		<Company>Unosquare SA de CV</Company>
+		<CodeAnalysisRuleSet>..\Analyzers.ruleset</CodeAnalysisRuleSet>
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+		<NeutralLanguage>en</NeutralLanguage>
 
-    <!-- Assembly Version Information -->
-    <AssemblyVersion>8.0.361.2</AssemblyVersion>
-    <FileVersion>8.0.361.2</FileVersion>
+		<!-- Assembly Version Information -->
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>1.0.0</FileVersion>
 
-    <!-- NuGet Package Properties -->
-    <!-- https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets#pack-target -->
-    <PackageId>Sinaxxr.FFME.Windows</PackageId>
-    <PackageVersion>8.0.361-sinaxxr.2</PackageVersion>
-    <Version>8.0.361-sinaxxr.2</Version>
-    <Authors>Sinaxxr (fork of Mario Di Vece et al.)</Authors>
-    <Title>FFME: WPF MediaElement Alternative (Sinaxxr fork) — FFmpeg 8 + lifecycle fixes</Title>
-    <Description>Fork of Unosquare.FFME upgraded to FFmpeg 8 with lifecycle stability work: dedicated decode/read worker threads, DirectSoundPlayer audio output, seek-to-zero close/open workaround. Native FFmpeg binaries are not included; see repository for installation notes.</Description>
-    <Copyright>Sinaxxr 2026; original work (C) Unosquare SA de CV, Mario Di Vece, and contributors 2015-2024</Copyright>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/sinaxxr/ffmediaelement</PackageProjectUrl>
-    <PackageIcon>ffme.png</PackageIcon>
-    <PackageTags>ffme hls wpf ffmpeg mediaelement h264 h265 hevc audio video decoding playback frame</PackageTags>
-    <PackageReleaseNotes>
-      8.0.361-sinaxxr.2: Fix heap corruption (0xc0000374) on H.264 video with non-mod-16 visible width/height. Root cause: sws_scale's SIMD output kernel writes 16-pixel-wide chunks and overruns an exactly-sized destination buffer by up to 15 pixels. VideoBlock.Allocate now over-allocates row stride to a 16-pixel boundary; VideoRenderer copies row-by-row when source/destination strides differ.
-      8.0.361-sinaxxr.1: Fork of Unosquare.FFME upgraded to FFmpeg 8 / FFmpeg.AutoGen 8.0.0.1, dedicated decode/read worker threads, DirectSoundPlayer audio output, seek-to-zero close/open workaround.
-      This package does not contain the required FFmpeg binaries. See repository README for installation instructions: https://github.com/sinaxxr/ffmediaelement
-    </PackageReleaseNotes>
-    <RepositoryUrl>https://github.com/sinaxxr/ffmediaelement</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
+		<!-- NuGet Package Properties -->
+		<!-- https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets#pack-target -->
+		<PackageId>Photodoc.FFME</PackageId>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Version>1.0.0</Version>
+		<Authors>John Melville Fork of Sinaxxr fork of Mario Di Vece et al.</Authors>
+		<Title>FFME: WPF MediaElement Alternative (Melville fork) — Optimize for use in Photodoc</Title>
+		<Description>I took the Sinxxar version, added GPL FMPEG libraties for windows x64 and I added a CaptureBitmapSoruceAsync method.</Description>
+		<Copyright>Sinaxxr 2026; original work (C) Unosquare SA de CV, Mario Di Vece, and contributors 2015-2024</Copyright>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/DrJohnMelville/PhotoDoc.FFME</PackageProjectUrl>
+		<PackageIcon>ffme.png</PackageIcon>
+		<PackageTags>ffme hls wpf ffmpeg mediaelement h264 h265 hevc audio video decoding playback frame</PackageTags>
+		<PackageReleaseNotes>
+		</PackageReleaseNotes>
+		<RepositoryUrl>https://github.com/DrJohnMelville/PhotoDoc.FFME</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
 
-  </PropertyGroup>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\Support\readme.txt" Pack="true" PackagePath="" />
-    <None Include="..\LICENSE" Pack="true" PackagePath="" />
-    <None Include="..\Support\ffme.png" Pack="true" PackagePath="" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\Support\readme.txt" Pack="true" PackagePath="" />
+		<None Include="..\LICENSE" Pack="true" PackagePath="" />
+		<None Include="..\Support\ffme.png" Pack="true" PackagePath="" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="FFmpeg.AutoGen" Version="8.1.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="FFmpeg.AutoGen" Version="8.1.0" />
+	</ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0' AND '$(TargetFramework)' != 'netcoreapp3.1' AND '$(TargetFramework)' != 'net10.0-windows'">
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Web" />
-  </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0' AND '$(TargetFramework)' != 'netcoreapp3.1' AND '$(TargetFramework)' != 'net10.0-windows'">
+		<Reference Include="WindowsBase" />
+		<Reference Include="PresentationCore" />
+		<Reference Include="PresentationFramework" />
+		<Reference Include="System.Windows.Forms" />
+		<Reference Include="System.Xaml" />
+		<Reference Include="System.Web" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<None Include="avcodec-62.dll"></None>
+		<None Include="avdevice-62.dll"></None>
+		<None Include="avfilter-11.dll"></None>
+		<None Include="avformat-62.dll"></None>
+		<None Include="swresample-6.dll"></None>
+		<None Include="swscale-9.dll"></None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="avcodec-62.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="avdevice-62.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="avfilter-11.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="avformat-62.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="avutil-60.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="swresample-6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="swscale-9.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="avcodec-62.dll">
+			<Pack>true</Pack>
+			<PackagePath>runtimes/win-x64/native/</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="avdevice-62.dll">
+			<Pack>true</Pack>
+			<PackagePath>runtimes/win-x64/native/</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="avfilter-11.dll">
+			<Pack>true</Pack>
+			<PackagePath>runtimes/win-x64/native/</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="avformat-62.dll">
+			<Pack>true</Pack>
+			<PackagePath>runtimes/win-x64/native/</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="avutil-60.dll">
+			<Pack>true</Pack>
+			<PackagePath>runtimes/win-x64/native/</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="swresample-6.dll">
+			<Pack>true</Pack>
+			<PackagePath>runtimes/win-x64/native/</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="swscale-9.dll">
+			<Pack>true</Pack>
+			<PackagePath>runtimes/win-x64/native/</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
-  <Import Project="..\Unosquare.FFME.MediaElement\Unosquare.FFME.MediaElement.projitems" Label="Shared" />
+	<Import Project="..\Unosquare.FFME.MediaElement\Unosquare.FFME.MediaElement.projitems" Label="Shared" />
 
-  <Import Project="..\Unosquare.FFME\Unosquare.FFME.projitems" Label="Shared" />
+	<Import Project="..\Unosquare.FFME\Unosquare.FFME.projitems" Label="Shared" />
 
 </Project>

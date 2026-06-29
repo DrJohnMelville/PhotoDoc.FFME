@@ -213,6 +213,24 @@ namespace Unosquare.FFME
             return retrievedBitmap;
         }).ConfigureAwait(true);
 
+#nullable enable
+        /// <summary>
+        /// Captures the currently displayed video image and returns a GDI bitmap.
+        /// </summary>
+        /// <returns>The WPF bitmapsource copied from the video renderer.</returns>
+        public async Task<ImageSource?> CaptureBitmapSourceAsync()
+        {
+            if (VideoView is not { } videoView) return null;
+            ImageSource? ret = null;
+            await videoView.InvokeAsync(() =>
+            {
+                ret = videoView.Source?.Clone();
+                ret?.Freeze();
+            });
+            return ret;
+        }
+#nullable disable
+
         /// <inheritdoc />
         public void Dispose() => Dispose(true);
 
